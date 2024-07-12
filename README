@@ -1,0 +1,68 @@
+# Real-time Location Tracking Application
+
+This project is a real-time location tracking application that uses Node.js, Express, Socket.io, and Leaflet.js. The application allows users to share their geolocation data in real-time, displaying each user's location on a map.
+
+## Features
+
+- Real-time location sharing
+- Real-time location updates on the map
+- User disconnection handling and marker removal
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- Socket.io
+- Leaflet.js
+- EJS (Embedded JavaScript)
+
+## Prerequisites
+
+- Node.js (v12 or higher)
+- npm (v6 or higher)
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Abhishekkumar60818/real-time-location-tracking.git
+    cd real-time-location-tracking
+    ```
+
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
+
+## Running the Application
+
+1. Start the server:
+    ```bash
+    npm start
+    ```
+
+2. Open your web browser and go to:
+    ```
+    http://localhost:3000
+    ```
+
+## Code Structure
+
+- `app.js`: Server-side code that sets up the Express server and handles Socket.io connections.
+- `public/`: Contains client-side code.
+  - `script.js`: Client-side JavaScript that handles geolocation and real-time updates using Socket.io and Leaflet.js.
+- `views/`: Contains EJS templates.
+  - `index.ejs`: Main template rendered by the server.
+
+## How It Works
+
+1. **Client-Side**:
+   - The client uses the Geolocation API to get the user's current position.
+   - It sends the latitude and longitude to the server via Socket.io.
+   - The client also listens for location updates from other users and updates the map accordingly.
+
+2. **Server-Side**:
+   - The server listens for incoming connections and location data.
+   - It broadcasts the location data to all connected clients.
+   - When a user disconnects, the server notifies the remaining clients to remove the user's marker from the map.
+
